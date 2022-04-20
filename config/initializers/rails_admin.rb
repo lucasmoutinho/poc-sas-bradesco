@@ -40,14 +40,24 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Solicitation' do
+    navigation_icon 'fa fa-book'
     create do
       exclude_fields :automatic_release, :adm_analysis, :medic_analysis
     end
   end
 
   config.model 'Procedure' do
+    navigation_icon 'fa fa-bell'
     object_label_method do
       :rails_admin_title
     end
+  end
+
+  config.model 'Beneficiary' do
+    navigation_icon 'fa fa-address-card'
+  end
+
+  config.model 'Referenced' do
+    navigation_icon 'fa fa-archive'
   end
 end
