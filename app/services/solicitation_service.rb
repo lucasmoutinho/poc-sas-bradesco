@@ -23,16 +23,18 @@ class SolicitationService
         # Cria uma primeira chamada ao SID para gerar um token de acesso
         urlToken3 = baseUrl + "/SASLogon/oauth/token"
         headers3 = {
-            "Content-Type" => "application/x-www-form-urlencoded",
+            "Content-Type": "application/x-www-form-urlencoded",
         }
         data3 = {
-            "grant_type" => "password",
-            "username" => username,
-            "password" => password
+            "grant_type": "password",
+            "username": username,
+            "password": password
         }
-        authToken = {:username => "sas.cli", :password => ""}
+        authToken = {username: "sas.cli", password: ""}
 
-        token_response = HTTParty.post(urlToken3, :headers => headers3, :body => data3.to_json, :verify => false, :auth => authToken)
+        token_response = HTTParty.post(urlToken3, :headers => headers3, :body => data3, :verify => false, :basic_auth => authToken)
+        puts "RESPOSTA AQUI:"
+        puts token_response
         puts token_response
         #@solicitation.procedure.cnpj_code
         #@solicitation
