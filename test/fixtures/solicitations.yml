@@ -4,6 +4,8 @@ one:
   beneficiary: one
   procedure: one
   referenced: one
+  attachment_exam_guide: false
+  attachment_medical_report: false
   automatic_release: false
   adm_analysis: false
   medic_analysis: false
@@ -12,6 +14,8 @@ two:
   beneficiary: two
   procedure: two
   referenced: two
+  attachment_exam_guide: false
+  attachment_medical_report: false
   automatic_release: false
   adm_analysis: false
   medic_analysis: false

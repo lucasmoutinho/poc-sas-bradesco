@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_021700) do
+ActiveRecord::Schema.define(version: 2022_04_20_044902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2022_04_20_021700) do
     t.bigint "beneficiary_id", null: false
     t.bigint "procedure_id", null: false
     t.bigint "referenced_id", null: false
+    t.boolean "attachment_exam_guide"
+    t.boolean "attachment_medical_report"
     t.boolean "automatic_release"
     t.boolean "adm_analysis"
     t.boolean "medic_analysis"

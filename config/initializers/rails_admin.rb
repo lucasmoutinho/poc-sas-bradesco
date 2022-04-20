@@ -44,6 +44,9 @@ RailsAdmin.config do |config|
     create do
       exclude_fields :automatic_release, :adm_analysis, :medic_analysis
     end
+    list do
+      exclude_fields :attachment_medical_report, :attachment_exam_guide, :referenced
+    end
   end
 
   config.model 'Procedure' do
