@@ -40,7 +40,7 @@ class SolicitationService
         # Faz a requisição ao SAS com o Token recebido
         if token_response.include?("access_token")
             tk = token_response["access_token"]
-            urlSID = baseUrl + "/microanalyticScore/modules/bradescosolicitation/steps/execute"
+            urlSID = baseUrl + "/microanalyticScore/modules/bradescosolicitation_copy_21_0/steps/execute"
             headersSID = {
                 "Content-Type": "application/json;charset=utf-8",
                 "Accept": "application/json",
@@ -54,11 +54,11 @@ class SolicitationService
                 "situacao_cadastro_cartao": @solicitation.beneficiary.register_status,
                 "situacao_cadastro_referenciado": @solicitation.referenced.register_status,
                 "nome_beneficiario": @solicitation.beneficiary.name,
-                "cartao_beneficiario": @solicitation.beneficiary.card,
-                "codigo_procedimento": @solicitation.procedure.code,
+                "cartao_beneficiario": @solicitation.beneficiary.card.to_s,
+                "codigo_procedimento": @solicitation.procedure.code.to_s,
                 "descricao_procedimento": @solicitation.procedure.description,
-                "codigo_referenciado": @solicitation.referenced.code,
-                "cnpj_referenciado": @solicitation.referenced.cnpj_code,
+                "codigo_referenciado": @solicitation.referenced.code.to_s,
+                "cnpj_referenciado": @solicitation.referenced.cnpj_code.to_s,
                 "nome_referenciado": @solicitation.referenced.name,
                 "tabela_procedimento": @solicitation.procedure.table_type
             }
