@@ -144,7 +144,7 @@ class SolicitationService
                 "situacao_cadastro_referenciado": @solicitation.referenced.register_status,
                 "nome_beneficiario": @solicitation.beneficiary.name,
                 "cartao_beneficiario": @solicitation.beneficiary.card.to_s,
-                "codigo_procedimento": @solicitation.procedure.code.to_so,
+                "codigo_procedimento": @solicitation.procedure.code.to_s,
                 "descricao_procedimento": @solicitation.procedure.description,
                 "codigo_referenciado": @solicitation.referenced.code.to_s,
                 "cnpj_referenciado": @solicitation.referenced.cnpj_code.to_s,
