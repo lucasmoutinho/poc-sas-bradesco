@@ -9,6 +9,7 @@ one:
   automatic_release: false
   adm_analysis: false
   medic_analysis: false
+  result: MyString
 
 two:
   beneficiary: two
@@ -19,3 +20,4 @@ two:
   automatic_release: false
   adm_analysis: false
   medic_analysis: false
+  result: MyString

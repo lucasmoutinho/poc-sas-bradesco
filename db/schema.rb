@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_044902) do
+ActiveRecord::Schema.define(version: 2022_04_20_180519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_04_20_044902) do
     t.boolean "automatic_release"
     t.boolean "adm_analysis"
     t.boolean "medic_analysis"
+    t.string "result"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["beneficiary_id"], name: "index_solicitations_on_beneficiary_id"

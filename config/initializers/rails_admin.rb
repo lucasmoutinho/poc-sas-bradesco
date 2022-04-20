@@ -42,10 +42,10 @@ RailsAdmin.config do |config|
   config.model 'Solicitation' do
     navigation_icon 'fa fa-book'
     create do
-      exclude_fields :automatic_release, :adm_analysis, :medic_analysis
+      exclude_fields :automatic_release, :adm_analysis, :medic_analysis, :result
     end
     list do
-      exclude_fields :attachment_medical_report, :attachment_exam_guide, :referenced
+      exclude_fields :attachment_medical_report, :attachment_exam_guide, :referenced, :procedure
     end
   end
 

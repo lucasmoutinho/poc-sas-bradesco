@@ -7,12 +7,12 @@ class SolicitationService
     end
 
     def update_solicitation_local
-        @solicitation.update(automatic_release: true, adm_analysis: true, medic_analysis: true)
+        @solicitation.update(automatic_release: true, adm_analysis: true, medic_analysis: true, result: "Aprovado")
     end
 
     def update_solicitation_api
-        analise_medica, analise_adm, liberacao_automatica = self.call_sas_api
-        @solicitation.update(automatic_release: liberacao_automatica, adm_analysis: analise_adm, medic_analysis: analise_medica)
+        analise_medica, analise_adm, liberacao_automatica, resultado_solicitacao = self.call_sas_api
+        @solicitation.update(automatic_release: liberacao_automatica, adm_analysis: analise_adm, medic_analysis: analise_medica, result: resultado_solicitacao)
     end
 
     def call_sas_api
@@ -52,7 +52,15 @@ class SolicitationService
                 "anexo_laudo": self.converter_boolean_int(@solicitation.attachment_medical_report),
                 "situacao_financeira_cartao": @solicitation.beneficiary.finantial_status,
                 "situacao_cadastro_cartao": @solicitation.beneficiary.register_status,
-                "situacao_cadastro_referenciado": @solicitation.referenced.register_status
+                "situacao_cadastro_referenciado": @solicitation.referenced.register_status,
+                "nome_beneficiario": @solicitation.beneficiary.name,
+                "cartao_beneficiario": @solicitation.beneficiary.card,
+                "codigo_procedimento": @solicitation.procedure.code,
+                "descricao_procedimento": @solicitation.procedure.description,
+                "codigo_referenciado": @solicitation.referenced.code,
+                "cnpj_referenciado": @solicitation.referenced.cnpj_code,
+                "nome_referenciado": @solicitation.referenced.name,
+                "tabela_procedimento": @solicitation.procedure.table_type
             }
             bodySID = {
                 "inputs":
@@ -73,6 +81,7 @@ class SolicitationService
             analise_medica = true
             analise_adm = true
             liberacao_automatica = true
+            resultado_solicitacao = "Pendente"
             for output in JSON.parse(resposta)["outputs"] do
                 if output["name"] == "analise_medica"
                     analise_medica = self.converter_int_boolean(output["value"])
@@ -83,6 +92,9 @@ class SolicitationService
                 if output["name"] == "liberacao_automatica"
                     liberacao_automatica = self.converter_int_boolean(output["value"])
                 end
+                if output["name"] == "resultado_solicitacao"
+                    resultado_solicitacao = output["value"]
+                end
             end
         else
             puts "DEU RUIM -----------------"
@@ -90,9 +102,10 @@ class SolicitationService
             analise_medica = false
             analise_adm = false
             liberacao_automatica = false
+            resultado_solicitacao = "Cancelado"
         end
 
-        return analise_medica, analise_adm, liberacao_automatica
+        return analise_medica, analise_adm, liberacao_automatica, resultado_solicitacao
     end
 
     def converter_boolean_int(b)

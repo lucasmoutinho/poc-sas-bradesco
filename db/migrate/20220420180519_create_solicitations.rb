@@ -9,6 +9,7 @@ class CreateSolicitations < ActiveRecord::Migration[6.1]
       t.boolean :automatic_release
       t.boolean :adm_analysis
       t.boolean :medic_analysis
+      t.string :result
 
       t.timestamps
     end
