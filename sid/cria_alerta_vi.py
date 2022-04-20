@@ -6,7 +6,7 @@ import datetime
 
 ''' List all output parameters as comma-separated values in the "Output:" docString. Do not specify "None" if there is no output parameter. '''
 def execute (guia, anexo_exame, anexo_laudo, situacao_financeira_cartao, situacao_cadastro_cartao, situacao_cadastro_referenciado, nome_beneficiario, cartao_beneficiario, codigo_procedimento, descricao_procedimento, codigo_referenciado, cnpj_referenciado, nome_referenciado, tabela_procedimento, liberacao_automatica, analise_adm, analise_medica, resultado_solicitacao): # noqa
-    'Output:'
+    'Output: resposta_vi'
     host = 'http://13.90.73.61'
     username = "t5user01"
     password = "Orion1234"
@@ -43,12 +43,12 @@ def execute (guia, anexo_exame, anexo_laudo, situacao_financeira_cartao, situaca
     bodyAlert = {
             "alertingEvents": [{
                 "alertingEventId":""+ae_rand+"",
-                "actionableEntityId": "idPropostaEntrada", #validar
-                "actionableEntityType": "PROPOSTA",
+                "actionableEntityId": ""+ae_rand+"",
+                "actionableEntityType": "autorizacao_senha",
                 "alertOriginCd": "SID",
-                "alertTypeCd": "FRAUD",
+                "alertTypeCd": "AUTORIZACAO",
                 "domainId": "mesa_prev_sky",
-                "score": 100,
+                "score": 1000,
                 "recQueueId": "prev_pf_operation_queue"
             }],
             "scenarioFiredEvents": [{
@@ -60,7 +60,7 @@ def execute (guia, anexo_exame, anexo_laudo, situacao_financeira_cartao, situaca
                 "scenarioOriginCd": "SID",
                 "displayFlg": "true",
                 "displayTypeCd": "text",
-                "score": 100
+                "score": 1000
             }],
             "enrichment": [{
                 "guia": guia,
@@ -83,6 +83,6 @@ def execute (guia, anexo_exame, anexo_laudo, situacao_financeira_cartao, situaca
                 "resultado_solicitacao": resultado_solicitacao
             }]
     }
-    resposta = requests.post(urlAlert,data = json.dumps(bodyAlert),headers=headersAlert,verify=False)
+    resposta_vi = requests.post(urlAlert,data = json.dumps(bodyAlert),headers=headersAlert,verify=False)
 
-    return None
+    return resposta_vi
