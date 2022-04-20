@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card: 9.99
+  name: MyString
+  finantial_status: MyString
+  register_status: MyString
+
+two:
+  card: 9.99
+  name: MyString
+  finantial_status: MyString
+  register_status: MyString

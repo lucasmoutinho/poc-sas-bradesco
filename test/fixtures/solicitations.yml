@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  beneficiary: one
+  procedure: one
+  referenced: one
+  automatic_release: false
+  adm_analysis: false
+  medic_analysis: false
+
+two:
+  beneficiary: two
+  procedure: two
+  referenced: two
+  automatic_release: false
+  adm_analysis: false
+  medic_analysis: false

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: 1
+  cnpj_code: 9.99
+  name: MyString
+  register_status: MyString
+
+two:
+  code: 1
+  cnpj_code: 9.99
+  name: MyString
+  register_status: MyString
