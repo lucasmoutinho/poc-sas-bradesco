@@ -20,6 +20,6 @@ Procedure.create(table_type: 'TUSS', code: 22010149, description: 'Polissonograf
 Procedure.create(table_type: 'TUSS', code: 50715016, description: 'Artrodese da coluna c/ instrução por segmento', guide: 'Internação')
 
 
-Referenced.create(code: 111511, cnpj_code: 60922168000348, name: 'Casa de Saúde São José', register_status: 'Em dia')
-Referenced.create(code: 5312, cnpj_code: 42297507000107, name: 'Balbino', register_status: 'Em dia')
-Referenced.create(code: 277436, cnpj_code: 26227959000158, name: 'Instituto Estadual de Diagnóstico', register_status: 'Em auditoria')
+Referenced.create(code: 16710, cnpj_code: 60922168000348, name: 'Casa de Saúde São José', register_status: 'Em dia')
+Referenced.create(code: 16675, cnpj_code: 42297507000107, name: 'Balbino', register_status: 'Em dia')
+Referenced.create(code: 16895, cnpj_code: 26227959000158, name: 'Instituto Estadual de Diagnóstico', register_status: 'Em auditoria')
