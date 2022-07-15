@@ -6,7 +6,7 @@ class Solicitation < ApplicationRecord
   after_create :call_solicitation_service
 
   def call_solicitation_service
-    local = true
+    local = false
     if local
       SolicitationService.new(self).update_solicitation_local
     else

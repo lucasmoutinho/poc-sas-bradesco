@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  username: moutinho
-  password: "123"
+  username: postgres
+  password: "orion123"
   host: localhost
   database: app_development
 
@@ -60,8 +60,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: moutinho
-  password: "123"
+  username: postgres
+  password: "orion123"
   host: localhost
   database: app_test
 
